@@ -54,7 +54,7 @@ namespace cogs
             if (file == null)
                 return;
 
-            var faceClient = new FaceServiceClient("96a1e49c0cd2436ba3857fe6598c8050");
+            var faceClient = new FaceServiceClient("yourkey");
             var Faces = await faceClient.DetectAsync(file.GetStream(), false, true, new FaceAttributeType[] { FaceAttributeType.Gender, FaceAttributeType.Age, FaceAttributeType.Smile, FaceAttributeType.Glasses });
 
             System.Diagnostics.Debug.WriteLine(Faces.Length + " rosto(s)");
@@ -70,7 +70,7 @@ namespace cogs
             try
             {
 
-                var emotionClient = new EmotionServiceClient("4fc3a3908bf34ad5a0aa4c9612cbf097");
+                var emotionClient = new EmotionServiceClient("yourkey");
                 var emotions = await emotionClient.RecognizeAsync(file.GetStream());
 
                 System.Diagnostics.Debug.WriteLine(emotions);
